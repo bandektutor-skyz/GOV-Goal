@@ -1,0 +1,157 @@
+/* --- การตั้งค่าพื้นฐาน --- */
+:root {
+    --primary-color: #b8860b;   /* สีเหลืองทอง */
+    --primary-hover: #9a7008;   /* สีทองเข้มเวลาเอาเมาส์ชี้ */
+    --secondary-color: #333;    /* สีตัวอักษรหลัก */
+    --bg-color: #f8f9fa;        /* สีพื้นหลังนวลๆ */
+    --card-bg: #ffffff;         /* สีพื้นหลังการ์ดขาวสะอาด */
+    --border-color: #eeeeee;    /* สีเส้นขอบ */
+    --text-muted: #888888;      /* สีตัวอักษรจางๆ */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--secondary-color);
+    line-height: 1.6;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Container หลัก --- */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* --- ส่วนหัวและโลโก้ --- */
+.header-section {
+    margin-bottom: 40px;
+}
+
+.header-section img {
+    max-width: 220px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.header-section h1 {
+    font-size: 26px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.header-section p {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* --- การจัดวาง Grid 3 คอลัมน์ (รายวิชา) --- */
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* --- คอลัมน์รายวิชา --- */
+.subject-column {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.subject-column:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.subject-title {
+    display: block;
+    background: var(--primary-color);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(184, 134, 11, 0.2);
+}
+
+/* --- รายการข้อสอบย่อย --- */
+.quiz-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.quiz-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ชี้ปุ่มข้อสอบ */
+.quiz-item:hover {
+    border-color: var(--primary-color);
+    background: #fffef9;
+    color: var(--primary-color);
+    transform: translateX(8px); /* ขยับไปทางขวาเล็กน้อย */
+}
+
+.quiz-item span {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: normal;
+}
+
+/* --- ส่วนท้าย --- */
+footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 12px;
+    color: #bbb;
+}
+
+/* --- ระบบรองรับหน้าจอมือถือ (Responsive) --- */
+@media (max-width: 900px) {
+    .subject-grid {
+        grid-template-columns: repeat(2, 1fr); /* จอกลางเหลือ 2 คอลัมน์ */
+    }
+}
+
+@media (max-width: 600px) {
+    .subject-grid {
+        grid-template-columns: 1fr; /* มือถือเหลือ 1 คอลัมน์เรียงแนวดิ่ง */
+    }
+    .container {
+        padding: 30px 15px;
+    }
+    .header-section h1 {
+        font-size: 22px;
+    }
+}
